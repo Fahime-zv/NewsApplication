@@ -1,16 +1,21 @@
+import org.jetbrains.kotlin.kapt3.base.Kapt.kapt
+
 plugins {
     id ("com.android.application")
     id ("org.jetbrains.kotlin.android")
+    kotlin("kapt")
+    id("dagger.hilt.android.plugin")
+
 }
 
 android {
-    namespace ="com.example.newsapplication"
+    namespace ="com.fahime.newsapplication"
     compileSdk= 34
 
     defaultConfig {
         applicationId ="com.fahime.newsapplication"
         minSdk= 24
-        targetSdk =33
+        targetSdk =34
         versionCode= 1
         versionName ="1.0"
 
@@ -27,11 +32,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility= JavaVersion.VERSION_17
-        targetCompatibility =JavaVersion.VERSION_17
+        sourceCompatibility= JavaVersion.VERSION_18
+        targetCompatibility =JavaVersion.VERSION_18
     }
     kotlinOptions {
-        jvmTarget = "1"
+        jvmTarget = "18"
     }
     buildFeatures {
         compose= true
@@ -53,6 +58,16 @@ dependencies {
     implementation(Dependencies.composeUi)
     implementation(Dependencies.composeUiToolPreview)
     implementation(Dependencies.composeMaterial)
-    testImplementation(Dependencies.junit)
+//    testImplementation(Dependencies.junit)
+    implementation(Dependencies.hiltNavigationCompose)
+
     implementation(project(Modules.utitlities))
+
+    implementation(Dependencies.hiltAndroid)
+//    kapt(Dependencies.hiltCompiler)
+    kapt(Dependencies.hiltAndroidCompiler)
+}
+
+kapt{
+    correctErrorTypes=true
 }

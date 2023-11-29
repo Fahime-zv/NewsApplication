@@ -1,4 +1,4 @@
-package com.example.utilities
+package com.fahime.newsapplication
 
 import org.junit.Test
 

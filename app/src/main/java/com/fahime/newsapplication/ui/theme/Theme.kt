@@ -1,4 +1,4 @@
-package com.example.newsapplication.ui.theme
+package com.fahime.newsapplication.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme

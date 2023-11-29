@@ -1,4 +1,4 @@
-package com.example.newsapplication.ui.theme
+package com.fahime.newsapplication.ui.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes
