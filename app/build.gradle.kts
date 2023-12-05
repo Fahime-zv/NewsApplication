@@ -1,52 +1,52 @@
 import org.jetbrains.kotlin.kapt3.base.Kapt.kapt
 
 plugins {
-    id ("com.android.application")
-    id ("org.jetbrains.kotlin.android")
+    id("com.android.application")
+    id("org.jetbrains.kotlin.android")
     kotlin("kapt")
     id("dagger.hilt.android.plugin")
 
 }
 
 android {
-    namespace ="com.fahime.newsapplication"
-    compileSdk= 34
+    namespace = "com.fahime.newsapplication"
+    compileSdk = 34
 
     defaultConfig {
-        applicationId ="com.fahime.newsapplication"
-        minSdk= 24
-        targetSdk =34
-        versionCode= 1
-        versionName ="1.0"
+        applicationId = "com.fahime.newsapplication"
+        minSdk = 24
+        targetSdk = 34
+        versionCode = 1
+        versionName = "1.0"
 
-        testInstrumentationRunner ="androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
-            useSupportLibrary =true
+            useSupportLibrary = true
         }
     }
 
     buildTypes {
         release {
-            isMinifyEnabled= false
-            proguardFiles (getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            isMinifyEnabled = false
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
     compileOptions {
-        sourceCompatibility= JavaVersion.VERSION_18
-        targetCompatibility =JavaVersion.VERSION_18
+        sourceCompatibility = JavaVersion.VERSION_18
+        targetCompatibility = JavaVersion.VERSION_18
     }
     kotlinOptions {
         jvmTarget = "18"
     }
     buildFeatures {
-        compose= true
+        compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion= "1.2.0"
+        kotlinCompilerExtensionVersion = "1.4.0"
     }
     packagingOptions {
         resources {
-            excludes +=" /META-INF/{AL2.0,LGPL2.1}"
+            excludes += " /META-INF/{AL2.0,LGPL2.1}"
         }
     }
 }
@@ -64,10 +64,26 @@ dependencies {
     implementation(project(Modules.utitlities))
 
     implementation(Dependencies.hiltAndroid)
+    implementation("androidx.compose.foundation:foundation-android:1.5.4")
 //    kapt(Dependencies.hiltCompiler)
     kapt(Dependencies.hiltAndroidCompiler)
+
+    implementation(Dependencies.retrofit)
+    implementation(Dependencies.okhttp)
+    implementation(Dependencies.moshi)
+    implementation(Dependencies.moshiConverter)
+    implementation(Dependencies.logginInterceptor)
+    implementation(Dependencies.gsonConverter)
+    implementation(Dependencies.kotlinMoshi)
+
+    implementation(Dependencies.coroutinesCore)
+    implementation(Dependencies.coroutinesAndroid)
+
+    implementation(Dependencies.splashScreen)
+    implementation(Dependencies.coil)
+
 }
 
-kapt{
-    correctErrorTypes=true
+kapt {
+    correctErrorTypes = true
 }
